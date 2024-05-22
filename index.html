@@ -1,94 +1,80 @@
-<!-- index.html -->
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="bumblebee">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Travel Company | Explore the World with Us</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- css -->
+    <link rel="stylesheet" href="style.css">
+    <!--Icons-->
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" type="image/x-icon" href="to do.png">
+
+    <title>Todolist</title>
 </head>
+
 <body>
-  <header>
-    <nav>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#destinations">Destinations</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-    <h1>Welcome to our Travel Company</h1>
-    <p>Explore the world with us</p>
-  </header>
 
-  <main>
-    <section id="home" class="hero">
-      <h2>Start Your Journey Today</h2>
-      <p>Discover new destinations and experiences with our travel company</p>
-      <button>Get Started</button>
-    </section>
+    <!-- main todo container -->
+    <div class="container">
+        <!-- header that has input and add button -->
+        <header>
+            <h1>Todo List</h1>
 
-    <section id="destinations" class="destinations">
-      <h2>Popular Destinations</h2>
-      <div class="destination-grid">
-        <div class="destination">
-          <img src="https://images.unsplash.com/photo-1546436836-07a91091f160?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Destination 1">
-          <h3>New York</h3>
-          <p>New York is a vibrant city known for its iconic landmarks, world-class museums, and bustling streets. From the Statue of Liberty to Central Park, there's something for everyone in this exciting destination.</p>
+            <div class="input-section">
+                <input id="todo-input" type="text" placeholder="📑 Add your todo here.."
+                    class="input w-full max-w-xs" />
+                <button id="add-button" class="btn btn-add ">
+                    <i class="bx bx-plus bx-sm"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- delete buttons -->
+
+        <div class="todos-filter">
+
+            <button id="delete-selected" class="btn btn-ghost delete-selected-btn">
+                Delete Selected
+            </button>
+            <button id="delete-all" class="btn btn-ghost delete-all-btn">
+                Delete All
+            </button>
         </div>
-        <div class="destination">
-          <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Destination 2">
-          <h3>Paris</h3>
-          <p>Paris is a romantic city known for its beautiful architecture, delicious food, and iconic landmarks. From the Eiffel Tower to the Louvre, there's no shortage of things to see and do in this enchanting destination.</p>
+
+
+        <!-- this is the dynamic content which dds ups all the todos -->
+        <ul id="all-todos" class="todos-list">
+
+        </ul>
+
+
+        <!-- dropdown throgh which we can apply filters -->
+        <div class="filters">
+            <div class="dropdown">
+                <button class="dropbtn">Filter</button>
+                <div class="dropdown-content">
+                    <a href="#" id="all">All</a>
+                    <a href="#" id="rem">Pending</a>
+                    <a href="#" id="com">Completed</a>
+                </div>
+            </div>
+
+            <!-- value showing completed task and all -->
+            <div class="completed-task">
+                <p>Completed: <span id="c-count">0</span></p>
+            </div>
+            <div class="remaining-task">
+                <p>Total Tasks: <span id="r-count">0</span></p>
+            </div>
         </div>
-        <div class="destination">
-          <img src="https://plus.unsplash.com/premium_photo-1661902398022-762e88ff3f82?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Destination 3">
-          <h3>Tokyo</h3>
-          <p>Tokyo is a bustling city known for its modern skyscrapers, traditional temples, and delicious food. From the Shibuya Crossing to the Meiji Shrine, there's no shortage of things to see and do in this exciting destination.</p>
-        </div>
-        <div class="destination">
-          <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Destination 4">
-          <h3>London</h3>
-          <p>London is a historic city known for its royal palaces, world-class museums, and iconic landmarks. From the Tower of London to the British Museum, there's something for everyone in this exciting destination.</p>
-        </div>
-        <div class="destination">
-          <img src="https://images.unsplash.com/photo-1612953293239-4befdc359b72?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Destination 5">
-          <h3>Sydney</h3>
-          <p>Sydney is a vibrant city known for its stunning beaches, iconic landmarks, and delicious food. From the Sydney Opera House to Bondi Beach, there's no shortage of things to see and do in this exciting destination.</p>
-        </div>
-      </div>
-    </section>
+    </div>
 
-    <section id="about" class="about">
-      <h2>About Us</h2>
-      <p>We are a travel company that specializes in creating unforgettable experiences for our customers. Our team of experienced travel professionals is dedicated to providing you with the best possible service and helping you plan the trip of a lifetime.</p>
-    </section>
+    <!-- JS -->
+    <script src="index.js"></script>
 
-    <section id="contact" class="contact">
-      <h2>Contact Us</h2>
-      <form action="/submit_form" method="post">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" rows="4" cols="50" required></textarea>
-
-        <button type="submit">Send Message</button>
-      </form>
-    </section>
-  </main>
-
-  <footer>
-    <p>Copyright © 2023 Travel Company</p>
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#destinations">Destinations</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </footer>
 </body>
+
 </html>
